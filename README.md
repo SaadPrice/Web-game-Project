@@ -1,6 +1,6 @@
 # Web-game-Project                                                                                                                                                              
 Chess Game                                                                                                                                                                                                                                                       
-Chess Pieces:                                                                                                                                                            32 pieces(16 black and 16 white)            
+Chess Pieces:                                                                                                                                                            32 pieces(16 black and 16 white)                                                                                                                                        Chess Board
 Chess Objective:                                                                                                                                                       The objective is to checkmate(capture the king).     
                                                                                                                                                                                                                                                 
 

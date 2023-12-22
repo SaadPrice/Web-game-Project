@@ -1,13 +1,23 @@
 #chessboard {
     width: 320px;
     height: 320px;
-    background-color: darkgray;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 .square {
     height:40px;
     width:40px;
 } 
+
+.square svg {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+
+}
+
+
 
 .red {
     background-color:red;

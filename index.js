@@ -14,10 +14,12 @@ const startPieces = [
 ]
 
 function createBoard() { 
-    startPieces.forEach((startPiece) => {
+    startPieces.forEach((startPiece, i) => {
        const square = document.createElement('div')
        square.classList.add('square')
+       square.setAttribute('square-id', i)
        square.classList.add('red')
+       square.innerHTML = startPiece
        chessBoard.append(square)
     
     })

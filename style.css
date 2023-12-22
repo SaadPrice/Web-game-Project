@@ -1,7 +1,7 @@
 #chessboard {
     width: 320px;
     height: 320px;
-    background-color: black;
+    background-color: darkgray;
 }
 
 .square {
@@ -9,6 +9,10 @@
     width:40px;
 } 
 
-.beige {
-    background-color: beige;
+.red {
+    background-color:red;
+}
+
+.blue {
+    background-color:blue;
 }

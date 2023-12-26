@@ -26,10 +26,21 @@ function createBoard() {
        } else{
         square.classList.add(i % 2 === 0 ? "red" : "blue")
        }
+       
+       if (i <= 15) {
+        square.firstChild.firstChild.classList.add('grey')
+       }
+       
+       if ( i >= 48) {
+        square.firstChild.firstChild.classList.add('white')
+       }
+       
        chessBoard.append(square) 
-    
+       
     })
 
 }
+
+
 createBoard()
 

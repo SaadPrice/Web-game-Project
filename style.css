@@ -19,10 +19,19 @@
 
 
 
+
 .red {
     background-color:red;
 }
 
 .blue {
     background-color:blue;
+}
+
+.grey {
+    fill:grey;
+}
+
+.white {
+    fill:white;
 }

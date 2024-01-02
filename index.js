@@ -20,7 +20,8 @@ function createBoard() {
        square.setAttribute('square-id', i)
       // square.classList.add('red')
        square.innerHTML = startPiece
-       const row = Math.floor ( (63 - i) / 8) + 1
+       square.firstChild?.setAttribute('draggable', true)
+       const row = Math.floor ( (63 - i) / 8) + 1   
        if  ( row % 2 === 0) {
             square.classList.add(i % 2 === 0 ? "blue" : "red")
        } else{
@@ -44,3 +45,27 @@ function createBoard() {
 
 createBoard()
 
+
+
+
+ const allsquares = document.querySelectorAll("#chessboard .square")
+
+allsquares.forEach(square => {
+    square.addEventListener('dragstart', dragStart)
+    square.addEventListener('dragover', dragOver)
+})
+
+let startPositionId 
+let draggedElement
+
+function dragStart (e) {
+    startPositionId = e.target.parentNode.getAttribute('square-id')   
+    draggedElement = e.target
+}
+
+function dragOver(){
+     A
+}
+
+
+ 

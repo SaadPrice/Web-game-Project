@@ -1,5 +1,6 @@
 const chessBoard = document.querySelector("#chessboard")
 const playerDisplay = document.querySelector("#player")
+const infoDisplay = document.querySelector("#info-display")
 const width = 8
 
 const startPieces = [
@@ -53,19 +54,21 @@ createBoard()
 allsquares.forEach(square => {
     square.addEventListener('dragstart', dragStart)
     square.addEventListener('dragover', dragOver)
+    square.addEventListener('drop, dragDrop')
 })
 
-let startPositionId 
-let draggedElement
+    let startPositionId 
+    let draggedElement
 
-function dragStart (e) {
-    startPositionId = e.target.parentNode.getAttribute('square-id')   
-    draggedElement = e.target
+
+
+
+function dragOver(e) {
+     e.preventDefault()
 }
 
-function dragOver(){
-     A
+function dragDrop() {
+
+
 }
-
-
- 
+  

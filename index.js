@@ -2,7 +2,8 @@ const chessBoard = document.querySelector("#chessboard")
 const playerDisplay = document.querySelector("#player")
 const infoDisplay = document.querySelector("#info-display")
 const width = 8
-
+let playerGo = 'grey'
+playerDisplay.textContent ='grey'
 const startPieces = [
     rook, knight, bishop, queen, king, bishop, knight, rook,
     pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn,
@@ -51,24 +52,60 @@ createBoard()
 
  const allsquares = document.querySelectorAll("#chessboard .square")
 
-allsquares.forEach(square => {
-    square.addEventListener('dragstart', dragStart)
-    square.addEventListener('dragover', dragOver)
-    square.addEventListener('drop, dragDrop')
-})
+ const allSquares = document.querySelectorAll('.square');
+ let startPositionId;
+ let draggedElement;
+ 
+ allSquares.forEach(square => {
+     square.addEventListener('dragstart', dragStart);
+     square.addEventListener('dragover', dragOver);
+     square.addEventListener('drop', dragDrop);
+ });
+ 
+ function dragStart(e) {
+     startPositionId = e.target.parentNode.getAttribute('square-id');
+     draggedElement = e.target;
+ }
+ 
+ function dragOver(e) {
+     e.preventDefault();
+ }
+ 
+ function dragDrop(e) {
+    e.stopPropagation();
+    const taken = e.target.classList.contains('piece');
+    console.log(e.target);
+    const correctGo = draggedElement.firstChild.classList.contains(playerGo);
+    const opponentGo = playerGo === 'white' ? 'grey' : 'white';
+    const takenByOpponent = e.target.firstChild?.classList?.contains(opponentGo);
 
-    let startPositionId 
-    let draggedElement
 
 
-
-
-function dragOver(e) {
-     e.preventDefault()
+    //e.target.appendChild(draggedElement)
+    //e.target.parentNode.append(draggedElement)
+    changePlayer();
 }
 
-function dragDrop() {
-
-
+function changePlayer() {
+    if (playerGo === "grey") {
+        reverseIds();
+        playerGo = "white";
+        playerDisplay.textContent = "white";
+    } else {
+        revertIds();
+        playerGo = "grey";
+        playerDisplay.textContent = "grey";
+    }
 }
-  
+
+function reverseIds() {
+    const allSquares = document.querySelectorAll(".square");
+    allSquares.forEach((square, i) =>
+        square.setAttribute('square-id', (width * width - 1) - i)
+    );
+}
+
+function revertIds() {
+    const allSquares = document.querySelectorAll(".square");
+    allSquares.forEach((square, i) => square.setAttribute('square-id', i));
+}

@@ -75,11 +75,19 @@ createBoard()
     e.stopPropagation();
     const taken = e.target.classList.contains('piece');
    
+    function checkIfValid(target) {
+        // Add your validation logic here
+        // For example, you might check if the target is a valid drop zone
+        // and return true if it is, otherwise return false.
+        return true; // Replace this with your actual validation logic
+    }
+    
+    // Now you can use checkIfValid in your dragDrop function
     const valid = checkIfValid(e.target);
     const correctGo = draggedElement.firstChild.classList.contains(playerGo);
     const opponentGo = playerGo === 'white' ? 'grey' : 'white';
     const takenByOpponent = e.target.firstChild?.classList?.contains(opponentGo);
-
+    
 if (correctGo){
     //must check this first
     if(takenByOpponent && valid) {
